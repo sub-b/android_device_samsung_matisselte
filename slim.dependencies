@@ -20,6 +20,11 @@
     "branch": "master"
   },
   {
+    "repository": "sub-b/android_vendor_samsung_matissewifi",
+    "target_path": "vendor/samsung/matissewifi",
+    "branch": "lp5.0-slim"
+  },
+  {
     "repository": "SlimRoms/hardware_samsung",
     "target_path": "hardware/samsung",
     "branch": "lp5.0"
