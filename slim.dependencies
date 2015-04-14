@@ -1,13 +1,13 @@
 [
   {
-    "repository": "SlimRoms/device_samsung_msm8974-common",
-    "target_path": "device/samsung/msm8974-common",
-    "branch": "lp5.0"
+    "repository": "sub-b/android_device_samsung_msm8226-common",
+    "target_path": "device/samsung/msm8226-common",
+    "branch": "lp5.0-slim"
   },
   {
-    "repository": "SlimRoms/device_samsung_qcom-common",
+    "repository": "sub-b/android_device_samsung_qcom-common",
     "target_path": "device/samsung/qcom-common",
-    "branch": "lp5.0"
+    "branch": "lp5.0-slim"
   },
   {
     "repository": "SlimRoms/device_qcom_common",
@@ -15,9 +15,9 @@
     "branch": "lp5.0"
   },
   {
-    "repository": "SlimRoms/kernel_samsung_mondrianwifi",
-    "target_path": "kernel/samsung/mondrianwifi",
-    "branch": "lp5.0"
+    "repository": "sub-b/android_kernel_samsung_matissewifi",
+    "target_path": "kernel/samsung/matissewifi",
+    "branch": "master"
   },
   {
     "repository": "SlimRoms/hardware_samsung",
