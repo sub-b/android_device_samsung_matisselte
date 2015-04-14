@@ -17,7 +17,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/samsung/mondrianwifi/mondrianwifi-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/matissewifi/matissewifi-vendor.mk)
 
 ## We are a tablet, not a phone
 PRODUCT_CHARACTERISTICS := tablet
@@ -30,8 +30,8 @@ PRODUCT_AAPT_CONFIG := normal xlarge hdpi xhdpi xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 1920
-TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 800
 
 $(call inherit-product, frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-heap.mk)
 
@@ -50,12 +50,12 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm8974 \
+    camera.msm8226 \
     libxml2
 
 # GPS
 PRODUCT_PACKAGES += \
-    gps.msm8974
+    gps.msm8226
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/gps.conf:/system/etc/gps.conf \
@@ -77,11 +77,11 @@ PRODUCT_COPY_FILES += \
 
 # Keystore
 PRODUCT_PACKAGES += \
-    keystore.msm8974
+    keystore.msm8226
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.msm8974
+    lights.msm8226
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -99,8 +99,8 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermal-engine-8974.conf:system/etc/thermal-engine-8974.conf \
-    $(LOCAL_PATH)/configs/thermald-8974.conf:system/etc/thermald-8974.conf
+    $(LOCAL_PATH)/configs/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf \
+    $(LOCAL_PATH)/configs/thermald-8226.conf:system/etc/thermald-8226.conf
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -123,5 +123,5 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
-# Common msm8974
-$(call inherit-product, device/samsung/msm8974-common/msm8974.mk)
+# Common msm8226
+$(call inherit-product, device/samsung/msm8226-common/msm8226.mk)
