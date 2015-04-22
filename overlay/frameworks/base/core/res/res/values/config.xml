@@ -153,7 +153,7 @@
     <bool translatable="false" name="config_wifi_dual_band_support">true</bool>
 
     <!-- Boolean indicating whether the wifi chipset has background scan support -->
-    <bool translatable="false" name="config_wifi_background_scan_support">false</bool>
+    <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
 
     <!-- Enables or disables fading edges when marquee is enabled in TextView. -->
     <bool name="config_ui_enableFadingMarquee">false</bool>
@@ -217,7 +217,7 @@
                It is actually the latter definition that wins but overlay both
                to be on the safe side.
  -->
-    <bool name="config_enableLockScreenRotation">false</bool>
+    <bool name="config_enableLockScreenRotation">true</bool>
 
     <!-- Indicate whether the SD card is accessible without removing the battery. -->
     <bool name="config_batterySdCardAccessibility">true</bool>
@@ -234,9 +234,9 @@
              8 - Assistant (search)
             16 - App switch
          For example, a device with Home, Back and Menu keys would set this
-         config to 7. >
-    <integer name="config_deviceHardwareKeys">19</integer-->
-
+         config to 7. > 
+    <integer name="config_deviceHardwareKeys">19</integer>
+    <integer name="config_deviceHardwareWakeKeys">1</integer>-->
     <bool name="config_enableWifiDisplay">true</bool>
 
     <!--  Maximum number of supported users -->
@@ -258,5 +258,7 @@
          1 - The device DOES have a permanent menu key; ignore autodetection.
          2 - The device DOES NOT have a permanent menu key; ignore autodetection. -->
     <integer name="config_overrideHasPermanentMenuKey">2</integer>
+
+
 
 </resources>

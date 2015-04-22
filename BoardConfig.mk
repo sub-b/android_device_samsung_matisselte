@@ -17,21 +17,21 @@
 
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/matissewifi/include
 
-TARGET_OTA_ASSERT_DEVICE := matissewifi,matissewifiue,matissewifixx
+TARGET_OTA_ASSERT_DEVICE := matissewifi,matissewifixx,matisselte,matisseltexx,matisselteattxx,matisselteusc,matisselteuscxx,matisseltevzw,matisseltevzwxx,matisse3g,matisse3gxx
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8226
 
 # Kernel
-BOARD_CUSTOM_BOOTIMG_MK := device/samsung/matissewifi/mkbootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := device/samsung/matissewifi/mkbootimg-wifi.mk
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x1e00000
 TARGET_KERNEL_SOURCE := kernel/samsung/s3ve3g
-TARGET_KERNEL_CONFIG := cm-matissewifi_defconfig
-TARGET_KERNEL_VARIANT_CONFIG := msm8226-sec_matissewifi_defconfig
+TARGET_KERNEL_CONFIG := msm8226-cm_defconfig
+TARGET_KERNEL_VARIANT_CONFIG := msm8926-cm_matissewifi_defconfig
 KERNEL_TOOLCHAIN_PREFIX := arm-linux-gnueabihf-
 KERNEL_TOOLCHAIN := "$(ANDROID_BUILD_TOP)/prebuilt/$(HOST_OS)-x86/toolchain/linaro-4.9-14.06/bin/"
 
@@ -48,15 +48,9 @@ AUDIO_FEATURE_DISABLED_MULTI_VOICE_SESSIONS := true
 AUDIO_FEATURE_DISABLED_FM := true
 AUDIO_FEATURE_DISABLED_ANC_HEADSET := true
 
-# Bluetooth
-BLUETOOTH_HCI_USE_MCT := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/matissewifi/bluetooth
-BOARD_HAVE_BLUETOOTH_QCOM := true
-QCOM_BT_USE_SMD_TTY := true
-
-# Camera
-TARGET_PROVIDES_CAMERA_HAL := true
-USE_DEVICE_SPECIFIC_CAMERA := true
+# Audio
+BOARD_USES_ALSA_AUDIO := true
+TARGET_USES_QCOM_COMPRESSED_AUDIO := true
 
 # GPS
 TARGET_NO_RPC := true
@@ -72,8 +66,21 @@ TARGET_UNIFIED_DEVICE := true
 TARGET_HAVE_NEW_GRALLOC := true
 BOARD_USES_LEGACY_MMAP := true
 
+# Camera
+#TARGET_SAMSUNG_GRALLOC_EXTERNAL_USECASES := true
+TARGET_PROVIDES_CAMERA_HAL := true
+USE_DEVICE_SPECIFIC_CAMERA := true
+
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
+
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/matissewifi/bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_QCOM := true
+BLUETOOTH_HCI_USE_MCT := true
+QCOM_BT_USE_SMD_TTY := true
+
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 10485760
@@ -86,7 +93,8 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # PowerHAL
-TARGET_POWERHAL_VARIANT := qcom
+TARGET_POWERHAL_SET_INTERACTIVE_EXT := device/samsung/matissewifi/power/power_ext.c
+TARGET_POWERHAL_VARIANT := cm
 
 # Recovery
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
@@ -98,8 +106,11 @@ BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 BOARD_USES_MMCUTILS := true
 TARGET_RECOVERY_FSTAB := device/samsung/matissewifi/rootdir/etc/fstab.qcom
 
-# SELinux
 include device/qcom/sepolicy/sepolicy.mk
+
+#ifdef xxxfm
+ifeq ($(TARGET_DEVICE),matissewifise)
+
 BOARD_SEPOLICY_DIRS += device/samsung/matissewifi/sepolicy
 
 BOARD_SEPOLICY_UNION += \
@@ -121,20 +132,7 @@ BOARD_SEPOLICY_UNION += \
   vold.te \
   wcnss-service.te \
 
-# Wifi
-#BOARD_HAS_QCOM_WLAN := true
-#BOARD_HAVE_SAMSUNG_WIFI := true
-#BOARD_WLAN_DEVICE := qcwcn
-#BOARD_HOSTAPD_DRIVER := NL80211
-#BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-#BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-#BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-#TARGET_USES_QCOM_WCNSS_QMI := true
-#TARGET_USES_WCNSS_CTRL := true
-#WPA_SUPPLICANT_VERSION := VER_0_8_X
-#WIFI_BAND := 802_11_ABG
-#WIFI_DRIVER_FW_PATH_STA   := "sta"
-#WIFI_DRIVER_FW_PATH_AP    := "ap"
+endif
 
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
