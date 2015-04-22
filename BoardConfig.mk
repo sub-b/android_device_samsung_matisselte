@@ -23,7 +23,7 @@ TARGET_OTA_ASSERT_DEVICE := matissewifi,matissewifixx,matisselte,matisseltexx,ma
 TARGET_BOOTLOADER_BOARD_NAME := MSM8226
 
 # Kernel
-BOARD_CUSTOM_BOOTIMG_MK := device/samsung/matissewifi/mkbootimg-wifi.mk
+BOARD_CUSTOM_BOOTIMG_MK := device/samsung/matissewifi/mkbootimg-lte.mk
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
@@ -31,7 +31,7 @@ BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x1e00000
 TARGET_KERNEL_SOURCE := kernel/samsung/s3ve3g
 TARGET_KERNEL_CONFIG := msm8226-cm_defconfig
-TARGET_KERNEL_VARIANT_CONFIG := msm8926-cm_matissewifi_defconfig
+TARGET_KERNEL_VARIANT_CONFIG := msm8926-cm_matisselte_defconfig
 KERNEL_TOOLCHAIN_PREFIX := arm-linux-gnueabihf-
 KERNEL_TOOLCHAIN := "$(ANDROID_BUILD_TOP)/prebuilt/$(HOST_OS)-x86/toolchain/linaro-4.9-14.06/bin/"
 
