@@ -14,18 +14,18 @@
 
 #
 # This file is the build configuration for a full Android
-# build for matissewifi hardware. This cleanly combines a set of
+# build for matisselte hardware. This cleanly combines a set of
 # device-specific aspects (drivers) with a device-agnostic
 # product configuration (apps). Except for a few implementation
 # details, it only fundamentally contains two inherit-product
-# lines, full and matissewifi, hence its name.
+# lines, full and matisselte, hence its name.
 #
 
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-$(call inherit-product, device/samsung/matissewifi/device.mk)
+$(call inherit-product, device/samsung/matisselte/device.mk)
 
 # Set those variables here to overwrite the inherited values.
 PRODUCT_NAME := matisselte

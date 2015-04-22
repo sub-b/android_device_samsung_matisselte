@@ -6,7 +6,7 @@ TARGET_SCREEN_WIDTH := 800
 $(call inherit-product, vendor/slim/config/common_full_tablet_lte.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/samsung/matissewifi/full_matissewifi.mk)
+$(call inherit-product, device/samsung/matisselte/full_matisselte.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_NAME := slim_matisselte
