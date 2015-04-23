@@ -49,8 +49,8 @@ PRODUCT_COPY_FILES += \
 # Override build.prop
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=160 \
-    ro.carrier=wifi-only
-	ro.radio.nori=yes
+    ro.carrier=wifi-only \
+	ro.radio.nori=yes \
 	keyguard.no_require_sim=1
 
 
